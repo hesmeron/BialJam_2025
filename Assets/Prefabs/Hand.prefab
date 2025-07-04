@@ -26,11 +26,10 @@ Transform:
   m_GameObject: {fileID: 2913154168450844176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.2229, z: 0}
-  m_LocalScale: {x: 1, y: 1.9509676, z: 1}
+  m_LocalPosition: {x: 0, y: -9.0138, z: 0}
+  m_LocalScale: {x: 1, y: 8.741896, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7319929714036106516}
+  m_Children: []
   m_Father: {fileID: 17162169152682983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &512270540543046434
@@ -97,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 17162169152682983}
+  - component: {fileID: 810171589674201092}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -117,9 +117,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7319929714036106516}
   - {fileID: 9073124257233407657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810171589674201092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3228201473425442933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bdc902bda7fc14bbfff4504787c213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9073241794126676974
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,12 +158,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9073241794126676974}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0663, y: 0.8966, z: 0}
-  m_LocalScale: {x: 1.4506044, y: 0.21204342, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.066300035, y: -0.47366238, z: 0}
+  m_LocalScale: {x: 1.4506044, y: 0.41368982, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9073124257233407657}
+  m_Father: {fileID: 17162169152682983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8735310289589197783
 SpriteRenderer:
@@ -193,8 +206,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1606770861
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.90588236, g: 0.7254902, b: 0.6431373, a: 1}
