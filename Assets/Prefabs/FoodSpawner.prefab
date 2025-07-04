@@ -61,6 +61,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
   _radius: 1.46
 --- !u!114 &1199913302331382944
 MonoBehaviour:

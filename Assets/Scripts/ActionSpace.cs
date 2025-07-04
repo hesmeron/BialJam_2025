@@ -5,7 +5,9 @@ using UnityEngine.Events;
 public class ActionSpace : MonoBehaviour
 {
     [SerializeField] 
-    private UnityEvent<HandController> OnGrab;
+    private UnityEvent<HandController> OnGrab;    
+    [SerializeField] 
+    private UnityEvent<HandController> OnEnter;
     [SerializeField] 
     private float _radius;
 
@@ -26,5 +28,11 @@ public class ActionSpace : MonoBehaviour
     {
         Debug.Log("Use action space");
         OnGrab.Invoke(controller);
+    }    
+    
+    public void Enter(HandController controller)
+    {
+        Debug.Log("Use action space");
+        OnEnter.Invoke(controller);
     }
 }

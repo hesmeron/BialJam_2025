@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ActionManager : MonoBehaviour
@@ -23,5 +24,19 @@ public class ActionManager : MonoBehaviour
         }
         result = null;
         return false;
+    }    
+    
+    public List<ActionSpace> GetAllActionsAtPoint(Vector2 position)
+    {
+        List<ActionSpace> result = new List<ActionSpace>();
+        foreach (ActionSpace actionSpace in _actionSpaces)         
+        {
+            if (actionSpace.IsWithinBounds(position))
+            {
+                result.Add(actionSpace);
+            }
+        }
+
+        return result;
     }
 }

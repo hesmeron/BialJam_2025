@@ -29,6 +29,8 @@ public class DogController : MonoBehaviour
         {
             Debug.Log("Lose game");
         }
+        hunger = Mathf.Clamp(hunger, 0, 1);
+        _fatness = Mathf.Clamp(_fatness, 0, 1);
     }
 
     public void Feed()
