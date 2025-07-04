@@ -258,43 +258,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 292680180979710851, guid: b4232886c8b82574d9dbfb1e1b150ee2, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 470768273}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4232886c8b82574d9dbfb1e1b150ee2, type: 3}
---- !u!1 &470768272
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 470768273}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &470768273
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470768272}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2989998, y: 0.991, z: -0.03392602}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1658312914}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,17 +570,6 @@ Transform:
   - {fileID: 1654133049}
   m_Father: {fileID: 1365441954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1094118589 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1199913302331382944, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-  m_PrefabInstance: {fileID: 1696034447}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01289af90b26144a8276707b7b8a515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1303049022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,11 +1051,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1658312914 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 292680180979710851, guid: b4232886c8b82574d9dbfb1e1b150ee2, type: 3}
-  m_PrefabInstance: {fileID: 330746709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1696034447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1114,28 +1064,8 @@ PrefabInstance:
       value: FoodSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1094118589}
-    - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnFoodInHand
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FoodSpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4291988975026154828, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
-      propertyPath: OnGrab.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: _radius
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 8698423041474153797, guid: bcb0f7f773716d14e9e6fa5297f64d19, type: 3}
       propertyPath: m_LocalPosition.x

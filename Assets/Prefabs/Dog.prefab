@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &165208756412191513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209680813954928777}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &209680813954928777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165208756412191513}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2989998, y: 0.991, z: -0.03392602}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 292680180979710851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &616449166903390826
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292680180979710851}
   - component: {fileID: 7794092828225689526}
+  - component: {fileID: 3784211438548356599}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -119,6 +151,7 @@ Transform:
   m_Children:
   - {fileID: 3878043262355500374}
   - {fileID: 1661278608551367212}
+  - {fileID: 209680813954928777}
   - {fileID: 6762873694662591393}
   - {fileID: 3392589006920087082}
   - {fileID: 8537677480933022271}
@@ -140,7 +173,43 @@ MonoBehaviour:
   _leftEye: {fileID: 3787925008595746212}
   _rightEye: {fileID: 7925878414658654641}
   hunger: 0
+  _fatness: 0
   _timeToStarvation: 20
+  _timeToLoseAllFat: 5
+--- !u!114 &3784211438548356599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895391741738829724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebac5628295ae44f8c3f5dfdbf5cc9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDrop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7794092828225689526}
+        m_TargetAssemblyTypeName: DogController, Assembly-CSharp
+        m_MethodName: Feed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _radius: 2.78
 --- !u!1 &1127131863253388682
 GameObject:
   m_ObjectHideFlags: 0

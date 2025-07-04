@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DogController : MonoBehaviour
@@ -22,7 +23,12 @@ public class DogController : MonoBehaviour
     void Update()
     {
         hunger += Time.deltaTime / _timeToStarvation;
-        _fatness += Time.deltaTime /_timeToLoseAllFat;
+        if (_fatness > Single.Epsilon)
+        {
+            _fatness -= Time.deltaTime /_timeToLoseAllFat;
+            _fatness = Mathf.Clamp(_fatness, 0, 1);
+        }
+
         _leftEye.SetHunger(hunger);
         _rightEye.SetHunger(hunger);
         if (hunger > 1)
@@ -30,11 +36,12 @@ public class DogController : MonoBehaviour
             Debug.Log("Lose game");
         }
         hunger = Mathf.Clamp(hunger, 0, 1);
-        _fatness = Mathf.Clamp(_fatness, 0, 1);
     }
 
-    public void Feed()
+    public void Feed(Grabable grabable)
     {
+        Debug.Log("Consume food");
+        Destroy(grabable.gameObject);
         hunger = 0;
         _fatness += 0.1f;
         if (_fatness >= 1)

@@ -17,4 +17,11 @@ public class PlayAreaBounds : MonoBehaviour
         float y = Mathf.Clamp(value.y, -_extents.y/2, _extents.y/2);
         return new Vector2(x, y);
     }
+
+    public bool IsWithinBounds(Vector2 value)
+    {
+        bool x = (value.x >= -_extents.x /2 && value.x <= _extents.x/2);
+        bool y = (value.y >= -_extents.y /2 && value.y <= _extents.y/2);
+        return x && y;
+    }
 }

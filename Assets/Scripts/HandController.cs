@@ -17,7 +17,7 @@ public class HandController : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
-    private Grabable grabbedItem;
+    private Grabable _grabbedItem;
     private bool _isGrabbing;
     private Vector3 _velocity;
     private List<ActionSpace> _enteredActionSpaces;
@@ -66,23 +66,26 @@ public class HandController : MonoBehaviour
     {
         Debug.Log("Let go");
         _animator.SetBool(IsGrabbing, false);
+        if (_grabbedItem != null)
+        {
+            _grabbedItem.transform.SetParent(null);
+            if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+            {
+                actionspace.Drop(_grabbedItem);
+            }
+            else
+            {
+                _grabbedItem.DropAndDisable();
+            }
+            _grabbedItem = null;
+        }
+
     }
 
     public void Grab(Grabable grabable)
     {
         grabable.transform.SetParent(transform);
         grabable.transform.localPosition = Vector3.zero;
-    }
-
-    public bool TryConsumeFood()
-    {
-        if (grabbedItem != null)
-        {
-            Destroy(grabbedItem);
-            grabbedItem = null;
-            return true;
-        }
-
-        return false;
+        _grabbedItem = grabable;
     }
 }

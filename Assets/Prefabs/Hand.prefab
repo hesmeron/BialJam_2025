@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionManager: {fileID: 0}
   _bounds: {fileID: 0}
-  _speed: 15
+  _speed: 20
   _target: {x: 0, y: 0}
   _animator: {fileID: 3104819764866246878}
 --- !u!95 &3104819764866246878

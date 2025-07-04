@@ -7,7 +7,9 @@ public class ActionSpace : MonoBehaviour
     [SerializeField] 
     private UnityEvent<HandController> OnGrab;    
     [SerializeField] 
-    private UnityEvent<HandController> OnEnter;
+    private UnityEvent<HandController> OnEnter;    
+    [SerializeField] 
+    private UnityEvent<Grabable> OnDrop;
     [SerializeField] 
     private float _radius;
 
@@ -28,6 +30,11 @@ public class ActionSpace : MonoBehaviour
     {
         Debug.Log("Use action space");
         OnGrab.Invoke(controller);
+    }    
+    public void Drop(Grabable item)
+    {
+        Debug.Log("Use action space");
+        OnDrop.Invoke(item);
     }    
     
     public void Enter(HandController controller)
