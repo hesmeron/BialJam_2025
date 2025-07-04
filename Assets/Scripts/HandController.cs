@@ -25,6 +25,15 @@ public class HandController : MonoBehaviour
         Vector2 translation = inputValue.normalized * (Time.deltaTime * inputValue.magnitude * _speed);
         Vector2 newTarget = _bounds.ClampPoint(_target + translation);
         _target = newTarget;
-        
+    }
+
+    public void GrabEvent()
+    {
+        Debug.Log("Grab ");
+    }    
+    
+    public void LetGoEvent()
+    {
+        Debug.Log("Let go");
     }
 }
