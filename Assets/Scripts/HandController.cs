@@ -22,9 +22,10 @@ public class HandController : MonoBehaviour
     private Vector3 _velocity;
     private List<ActionSpace> _enteredActionSpaces;
 
-    void Awake()
+    void Start()
     {
         _target = transform.position;
+        _enteredActionSpaces = _actionManager.GetAllActionsAtPoint(transform.position);
     }
 
     private void Update()
