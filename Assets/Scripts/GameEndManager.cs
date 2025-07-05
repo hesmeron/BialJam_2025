@@ -11,7 +11,10 @@ public enum GameEndScenario
     TimeOut,
     DogOverfed,
     DogStarved,
-    DogPoisoned
+    DogPoisoned,
+    DemolitionBall,
+    SpaceDog,
+    Injured
 }
 public class GameEndManager : MonoBehaviour
 {

@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class DogController : MonoBehaviour
 {
+    private static readonly int Hunger = Animator.StringToHash("hunger");
+
+    [SerializeField]
+    private Animator _animator;
     [SerializeField] 
     private GameEndManager _gameEndManager;
     [SerializeField]
@@ -24,6 +28,9 @@ public class DogController : MonoBehaviour
     [SerializeField] 
     public float _timeToLoseAllFat = 5f;
 
+    public float Fattness => _fatness;
+
+
     void Update()
     {
         hunger += Time.deltaTime / _timeToStarvation;
@@ -40,6 +47,7 @@ public class DogController : MonoBehaviour
             _gameEndManager.EndGame(GameEndScenario.DogStarved);
         }
         hunger = Mathf.Clamp(hunger, 0, 1);
+        _animator.SetFloat(Hunger, hunger);
     }
 
     public void Feed(Grabable grabable, HandController handController)
@@ -50,6 +58,7 @@ public class DogController : MonoBehaviour
         }
         Debug.Log("Consume food");
         Destroy(grabable.gameObject);
+        
         hunger = 0;
         _fatness += 0.3f;
         if (_fatness >= 1)

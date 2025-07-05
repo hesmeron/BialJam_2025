@@ -21,9 +21,9 @@ public class PlayerConroller : MonoBehaviour
     [SerializeField]
     private HandController _rHand;    
     [SerializeField]
-    private HandController _lLeg;
+    private LegController _lLeg;
     [SerializeField]
-    private HandController _rLeg;
+    private LegController _rLeg;
 
     private bool _isLeftGrabbed = false;
     private bool _isRightGrabbed = false;
@@ -43,14 +43,15 @@ public class PlayerConroller : MonoBehaviour
     
     public void OnLeftHandMove(InputValue inputValue)
     {
+        Vector2 value = inputValue.Get<Vector2>();
         switch (_gameMod)
         {
             case GameMod.Up:
-                Vector2 value = inputValue.Get<Vector2>();
                 Debug.Log("Value L: " + value);
                 _lHand.ReceiveInput(value);
                 break;
             case GameMod.Down:
+                _lLeg.ReceiveInput(value);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -59,14 +60,16 @@ public class PlayerConroller : MonoBehaviour
     
     public void OnRightHandMove(InputValue inputValue)
     {
+        Vector2 value = inputValue.Get<Vector2>();
         switch (_gameMod)
         {
             case GameMod.Up:
-                Vector2 value = inputValue.Get<Vector2>();
+
                 Debug.Log("Value R: " + value);
                 _rHand.ReceiveInput(value);
                 break;
             case GameMod.Down:
+                _rLeg.ReceiveInput(value);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
