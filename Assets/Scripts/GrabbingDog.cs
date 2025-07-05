@@ -1,9 +1,11 @@
-using System;
 using UnityEngine;
 
 public class GrabbingDog : MonoBehaviour
 {
-    [SerializeField] private DogController _dogControler;
+    [SerializeField]
+    private PlayerConroller _player;
+    [SerializeField]
+    private DogController _dogControler;
     [SerializeField] 
     private Transform _target;
     [SerializeField]
@@ -30,11 +32,12 @@ public class GrabbingDog : MonoBehaviour
         Initialize();
     }
 
-    void Initialize()
+    public void Initialize()
     {
         Debug.Log("Initialize");
         _isGrabbing = true;
         _isFirstFrame = true;
+        _timePassed = 0f;
         transform.position = _target.position;
         transform.up = _target.right;
     }
@@ -87,6 +90,10 @@ public class GrabbingDog : MonoBehaviour
                         {
                             _gameEndManager.EndGame(GameEndScenario.SpaceDog);
                         }
+                    }
+                    else
+                    {
+                        _player.ChangeMode(PlayerConroller.GameMode.Up);
                     }
                 }
 

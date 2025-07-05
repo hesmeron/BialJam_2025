@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Net.NetworkInformation;
 using TMPro;
 using Unity.VisualScripting;
@@ -30,6 +31,12 @@ public class GameEndManager : MonoBehaviour
 
     public void EndGame(GameEndScenario scenario)
     {
+        StartCoroutine(EndScenario(scenario));
+    }
+
+    IEnumerator EndScenario(GameEndScenario scenario)
+    {
+        yield return new WaitForSeconds(4f);
         _mockPanel.SetActive(true);
         _mockText.text = scenario.ToString();
         switch (scenario)

@@ -1,17 +1,26 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Android;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerConroller : MonoBehaviour
 {
-    private enum GameMod
+    private static readonly int IsVisible = Animator.StringToHash("isVisible");
+
+    public enum GameMode
     {
         Up, 
         Down
     }
     [SerializeField]
-    private GameMod _gameMod = GameMod.Up;
+    private GrabbingDog _grabbingDog;
+    [SerializeField]
+    private Animator _animator;
+    [SerializeField]
+    private DogController _dogController;
+    [SerializeField]
+    private GameMode _gameMode = GameMode.Up;
     [SerializeField]
     private CameraController _cameraController;
     [SerializeField]
@@ -28,11 +37,56 @@ public class PlayerConroller : MonoBehaviour
     private bool _isLeftGrabbed = false;
     private bool _isRightGrabbed = false;
 
-    private void OnDrawGizmosSelected()
+    private void Awake()
     {
-        //Gizmos
+        ChangeMode(GameMode.Down);
     }
 
+    IEnumerator ChangeGameModeDown()
+    {
+        yield return new WaitForSeconds(Random.Range(30, 60f));
+        while (_dogController.Hunger < 0.15f)
+        {
+            yield return null;
+        }
+        _dogController.Disable();
+        yield return new WaitForSeconds(0.15f);
+        _animator.SetBool(IsVisible, false);
+        yield return new WaitForSeconds(2f);
+        _grabbingDog.gameObject.SetActive(true);
+        _grabbingDog.Initialize();
+        _cameraController.MoveDown();
+        yield return new WaitForSeconds(2f);
+        _gameMode = GameMode.Down;
+
+    }
+    
+    IEnumerator ChangeGameModeUp()
+    {
+        yield return new WaitForSeconds(2f);
+        _dogController.Reenable();
+        _cameraController.MoveUp();
+        _animator.SetBool(IsVisible, true);
+        yield return new WaitForSeconds(2f);
+        _gameMode = GameMode.Up;
+        _grabbingDog.gameObject.SetActive(false);
+        ChangeMode(GameMode.Down);
+    }
+
+    public void ChangeMode(GameMode mode)
+    {
+        switch (mode)
+        {
+            case GameMode.Up:
+                StartCoroutine(ChangeGameModeUp());
+                break;
+            case GameMode.Down:
+                StartCoroutine(ChangeGameModeDown());
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
     void Update()
     {
         if (_lHand.IsDisabled && _rHand.IsDisabled)
@@ -44,13 +98,13 @@ public class PlayerConroller : MonoBehaviour
     public void OnLeftHandMove(InputValue inputValue)
     {
         Vector2 value = inputValue.Get<Vector2>();
-        switch (_gameMod)
+        switch (_gameMode)
         {
-            case GameMod.Up:
+            case GameMode.Up:
                 Debug.Log("Value L: " + value);
                 _lHand.ReceiveInput(value);
                 break;
-            case GameMod.Down:
+            case GameMode.Down:
                 _lLeg.ReceiveInput(value);
                 break;
             default:
@@ -61,14 +115,14 @@ public class PlayerConroller : MonoBehaviour
     public void OnRightHandMove(InputValue inputValue)
     {
         Vector2 value = inputValue.Get<Vector2>();
-        switch (_gameMod)
+        switch (_gameMode)
         {
-            case GameMod.Up:
+            case GameMode.Up:
 
                 Debug.Log("Value R: " + value);
                 _rHand.ReceiveInput(value);
                 break;
-            case GameMod.Down:
+            case GameMode.Down:
                 _rLeg.ReceiveInput(value);
                 break;
             default:
@@ -79,9 +133,9 @@ public class PlayerConroller : MonoBehaviour
     
     public void OnLeftGrab(InputValue inputValue)
     {
-        switch (_gameMod)
+        switch (_gameMode)
         {
-            case GameMod.Up:
+            case GameMode.Up:
                 float value = inputValue.Get<float>();
                 //Debug.Log("Left grab " + value);
                 if (value > 0.5f && !_isLeftGrabbed)
@@ -95,7 +149,7 @@ public class PlayerConroller : MonoBehaviour
                     _lHand.LetGoEvent();
                 }
                 break;
-            case GameMod.Down:
+            case GameMode.Down:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -105,9 +159,9 @@ public class PlayerConroller : MonoBehaviour
     
     public void OnRightGrab(InputValue inputValue)
     {
-        switch (_gameMod)
+        switch (_gameMode)
         {
-            case GameMod.Up:
+            case GameMode.Up:
                 float value = inputValue.Get<float>();
                 if (value > 0.5f && !_isRightGrabbed)
                 {
@@ -120,7 +174,7 @@ public class PlayerConroller : MonoBehaviour
                     _rHand.LetGoEvent();
                 }
                 break;
-            case GameMod.Down:
+            case GameMode.Down:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

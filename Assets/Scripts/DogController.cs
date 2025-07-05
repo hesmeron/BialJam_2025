@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class DogController : MonoBehaviour
 {
-    private static readonly int Hunger = Animator.StringToHash("hunger");
+    private static readonly int HungerID = Animator.StringToHash("hunger");
+    private static readonly int IsVisible = Animator.StringToHash("isVisible");
 
     [SerializeField]
     private Animator _animator;
@@ -29,6 +30,7 @@ public class DogController : MonoBehaviour
     public float _timeToLoseAllFat = 5f;
 
     public float Fattness => _fatness;
+    public float Hunger => hunger;
 
 
     void Update()
@@ -47,9 +49,22 @@ public class DogController : MonoBehaviour
             _gameEndManager.EndGame(GameEndScenario.DogStarved);
         }
         hunger = Mathf.Clamp(hunger, 0, 1);
-        _animator.SetFloat(Hunger, hunger);
+        _animator.SetFloat(HungerID, hunger);
     }
 
+    public void Disable()
+    {
+        _animator.SetBool(IsVisible, false);
+        hunger = 0;
+        this.enabled = false;
+    }    
+    
+    public void Reenable()
+    {
+        _animator.SetBool(IsVisible, true);
+        this.enabled = true;
+    }
+    
     public void Feed(Grabable grabable, HandController handController)
     {
         if (!grabable.EdibleByDog)
