@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DogController : MonoBehaviour
 {
+    [SerializeField] 
+    private GameEndManager _gameEndManager;
     [SerializeField]
     private KonradController _konradController;
     [SerializeField]
@@ -35,20 +37,24 @@ public class DogController : MonoBehaviour
         _rightEye.SetHunger(hunger);
         if (hunger > 1)
         {
-            Debug.Log("Lose game");
+            _gameEndManager.EndGame(GameEndScenario.DogStarved);
         }
         hunger = Mathf.Clamp(hunger, 0, 1);
     }
 
     public void Feed(Grabable grabable, HandController handController)
     {
+        if (!grabable.EdibleByDog)
+        {
+            _gameEndManager.EndGame(GameEndScenario.DogPoisoned);
+        }
         Debug.Log("Consume food");
         Destroy(grabable.gameObject);
         hunger = 0;
-        _fatness += 0.1f;
+        _fatness += 0.3f;
         if (_fatness >= 1)
         {
-            Debug.Log("Lose game FAT");
+            _gameEndManager.EndGame(GameEndScenario.DogOverfed);
         }
         if (_konradController.IsKonradLooking)
         {

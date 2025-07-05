@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class Grabable : MonoBehaviour
 {
+    [SerializeField] 
+    private bool _edibleByDog = true;
     [SerializeField]
     private Bounds _bounds;
     [SerializeField]
     private Rigidbody2D _rigidbody;
+    
+    public bool EdibleByDog => _edibleByDog;
 
 
     public void Initialize(Bounds bounds)

@@ -4,6 +4,8 @@ using UnityEngine;
 public class TimeLimit : MonoBehaviour
 {
     [SerializeField]
+    private GameEndManager _gameEndManager;
+    [SerializeField]
     private TMP_Text _text;
     [SerializeField] 
     private int finishHour = 13;
@@ -22,7 +24,7 @@ public class TimeLimit : MonoBehaviour
 
         if (_currentTimePassed >= _gameTimeLimitInSeconds)
         {
-            Debug.Log("Lose game TIME");
+            _gameEndManager.EndGame(GameEndScenario.TimeOut);
         }
     }
 }

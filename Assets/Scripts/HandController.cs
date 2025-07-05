@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandController : MonoBehaviour
 {
     private static readonly int IsGrabbing = Animator.StringToHash("isGrabbing");
-    private static readonly int IsDisabled = Animator.StringToHash("isDisabled");
+    private static readonly int IsDisabledID = Animator.StringToHash("isDisabled");
 
     [SerializeField]
     private ActionManager _actionManager;
@@ -23,6 +23,8 @@ public class HandController : MonoBehaviour
     private Vector3 _velocity;
     private List<ActionSpace> _enteredActionSpaces;
     private bool _isDisabled = false;
+    
+    public bool IsDisabled => _isDisabled;
 
     void Start()
     {
@@ -111,6 +113,6 @@ public class HandController : MonoBehaviour
     public void DisableHand()
     {
         _isDisabled = true;
-        _animator.SetBool(IsDisabled, true);
+        _animator.SetBool(IsDisabledID, true);
     }
 }

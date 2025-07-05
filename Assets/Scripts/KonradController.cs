@@ -52,7 +52,6 @@ public class KonradController : MonoBehaviour
             while (Mathf.Abs(_currentX - _endingX) > 0.1f)
             {
                 SetCharacterX(Mathf.Lerp(_currentX, _endingX, Time.deltaTime / 4f));
-                Debug.Log("Move konrad");
                 //_isKonradLooking = (Mathf.Abs(_currentX - _endingX) < Mathf.Abs(_currentX - _lookingThresholdX));
                 _isKonradLooking = ((_currentX - _lookingThresholdXA) *  (_currentX - _lookingThresholdXB)) < 0;
                 yield return null;

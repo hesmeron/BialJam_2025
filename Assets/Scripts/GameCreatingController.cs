@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class GameCreatingController : MonoBehaviour
 {
     [SerializeField]
+    private GameEndManager _gameEndManager;
+    [SerializeField]
     private Transform _spawnPivot;
     [SerializeField] 
     private List<Color> colors;
@@ -22,7 +24,8 @@ public class GameCreatingController : MonoBehaviour
     private float _lineSpacing  = 0.25f;
     
     private List<CodeLineController> _codeLinesWritten = new List<CodeLineController>();
-    private readonly float _progressNeeded = 1000;
+    [SerializeField]
+    private float _progressNeeded = 1000;
     [SerializeField]
     private float _progress = 0;
     private float _spawnHeight = 0f;
@@ -87,7 +90,7 @@ public class GameCreatingController : MonoBehaviour
         _progress++;
         if (_progress >= _progressNeeded)
         {
-            Debug.Log("Victory");
+            _gameEndManager.EndGame(GameEndScenario.Success);
         }
 
         if (_codeLinesWritten.Count == 0)
