@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebac5628295ae44f8c3f5dfdbf5cc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mode: 1
+  _bounds:
+    m_Center: {x: -0.71, y: 0, z: 0}
+    m_Extent: {x: 2.09, y: 2.68, z: 0}
   OnGrab:
     m_PersistentCalls:
       m_Calls:
@@ -64,7 +68,10 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
-  _radius: 1.46
+  OnDrop:
+    m_PersistentCalls:
+      m_Calls: []
+  _radius: 1.21
 --- !u!114 &1199913302331382944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +84,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01289af90b26144a8276707b7b8a515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bounds:
+    m_Center: {x: 0, y: -8.27, z: 0}
+    m_Extent: {x: 11.24, y: 13.54, z: 100}
   _grabablePrefabs:
   - {fileID: 7443770595366291687, guid: 6ca522cb6b9ff0443983846bf36f41ab, type: 3}
+  - {fileID: 7443770595366291687, guid: ac5625cf23c044c40a85e6bdd2922b60, type: 3}
+  - {fileID: 7443770595366291687, guid: 14157989b7f770343a88ad47311c64ec, type: 3}
 --- !u!1 &6640941606809369105
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1947974, y: 1.7013582, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8698423041474153797}
@@ -155,8 +167,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9989958, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 4527134507036418872, guid: ce03b8d9d1044b64ba40ce9e202720f3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

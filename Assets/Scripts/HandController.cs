@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandController : MonoBehaviour
 {
     private static readonly int IsGrabbing = Animator.StringToHash("isGrabbing");
+    private static readonly int IsDisabled = Animator.StringToHash("isDisabled");
 
     [SerializeField]
     private ActionManager _actionManager;
@@ -21,6 +22,7 @@ public class HandController : MonoBehaviour
     private bool _isGrabbing;
     private Vector3 _velocity;
     private List<ActionSpace> _enteredActionSpaces;
+    private bool _isDisabled = false;
 
     void Start()
     {
@@ -35,6 +37,14 @@ public class HandController : MonoBehaviour
         _target = newTarget;
         transform.position = Vector2.Lerp(transform.position, _target, _speed * Time.deltaTime);
 
+        if (!_isDisabled)
+        {
+            HandleEnterEvents();
+        }
+    }
+
+    private void HandleEnterEvents()
+    {
         var results = _actionManager.GetAllActionsAtPoint(transform.position);
 
         foreach (var actionSpace in results)
@@ -55,38 +65,52 @@ public class HandController : MonoBehaviour
 
     public void GrabEvent()
     {
-        Debug.Log("Grab ");
-        _animator.SetBool(IsGrabbing, true);
-        if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+        if (!_isDisabled)
         {
-            actionspace.Grab(this);
+            Debug.Log("Grab ");
+            _animator.SetBool(IsGrabbing, true);
+            if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+            {
+                actionspace.Grab(this);
+            }
         }
     }    
     
     public void LetGoEvent()
     {
-        Debug.Log("Let go");
-        _animator.SetBool(IsGrabbing, false);
-        if (_grabbedItem != null)
+        if (!_isDisabled)
         {
-            _grabbedItem.transform.SetParent(null);
-            if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+            Debug.Log("Let go");
+            _animator.SetBool(IsGrabbing, false);
+            if (_grabbedItem != null)
             {
-                actionspace.Drop(_grabbedItem);
+                _grabbedItem.transform.SetParent(null);
+                if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+                {
+                    actionspace.Drop(_grabbedItem, this);
+                }
+                else
+                {
+                    _grabbedItem.DropAndDisable();
+                }
+                _grabbedItem = null;
             }
-            else
-            {
-                _grabbedItem.DropAndDisable();
-            }
-            _grabbedItem = null;
         }
-
     }
 
     public void Grab(Grabable grabable)
     {
-        grabable.transform.SetParent(transform);
-        grabable.transform.localPosition = Vector3.zero;
-        _grabbedItem = grabable;
+        if (!_isDisabled)
+        {
+            grabable.transform.SetParent(transform);
+            grabable.transform.localPosition = Vector3.zero;
+            _grabbedItem = grabable;
+        }
+    }
+
+    public void DisableHand()
+    {
+        _isDisabled = true;
+        _animator.SetBool(IsDisabled, true);
     }
 }

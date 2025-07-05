@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,11 +16,14 @@ public class GameCreatingController : MonoBehaviour
     private float _startSpawnHeight = 0f;    
     [SerializeField] 
     private float _despawnHeight = 0f;
-
-    [SerializeField] private float _lineSpacing  = 0.25f;
+    [SerializeField]
+    private float _scrollThreshold = 0.5f;
+    [SerializeField] 
+    private float _lineSpacing  = 0.25f;
     
     private List<CodeLineController> _codeLinesWritten = new List<CodeLineController>();
     private readonly float _progressNeeded = 1000;
+    [SerializeField]
     private float _progress = 0;
     private float _spawnHeight = 0f;
 
@@ -37,11 +41,39 @@ public class GameCreatingController : MonoBehaviour
         _spawnHeight = _startSpawnHeight;
     }
 
+    private void Update()
+    {
+        if (_startSpawnHeight - _spawnHeight > _scrollThreshold)
+        {
+            float newSpawnHeight = Mathf.Lerp(_spawnHeight, _startSpawnHeight, Time.deltaTime);
+            float delta = newSpawnHeight - _spawnHeight;
+            List<CodeLineController> codeLinesToRemove = new List<CodeLineController>();
+            
+            foreach (CodeLineController codeLine in _codeLinesWritten)
+            {
+                codeLine.transform.localPosition += Vector3.up * delta;
+
+                if (codeLine.transform.localPosition.y > _despawnHeight)
+                {
+                    codeLinesToRemove.Add(codeLine);
+                }
+            }
+            
+            foreach (CodeLineController codeLineController in codeLinesToRemove)
+            {
+                    
+                _codeLinesWritten.Remove(codeLineController);
+                Destroy(codeLineController.gameObject);
+            }
+            _spawnHeight = newSpawnHeight;
+        }
+    }
+
     private void CreateLineOfCode()
     {
         CodeLineController codeLineController = Instantiate(_codeLinePrefab, _spawnPivot);
         codeLineController.transform.localPosition = new Vector3(0,_spawnHeight, 0);
-        float intendedLength = Random.Range(0.4f, 1f);
+        float intendedLength = Random.Range(0.12f, 0.75f);
         float allocatedProgress = intendedLength * 5f;
         codeLineController.Initialize(intendedLength, allocatedProgress);
         _codeLinesWritten.Add(codeLineController);
