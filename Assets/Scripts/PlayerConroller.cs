@@ -44,7 +44,7 @@ public class PlayerConroller : MonoBehaviour
 
     IEnumerator ChangeGameModeDown()
     {
-        yield return new WaitForSeconds(Random.Range(30, 60f));
+        yield return new WaitForSeconds(Random.Range(15, 30f));
         while (_dogController.Hunger < 0.15f)
         {
             yield return null;

@@ -1322,10 +1322,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 437233497800796956, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_SortingOrder
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 691198681099027732, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_Size.x
+      value: 10.933333
+      objectReference: {fileID: 0}
+    - target: {fileID: 691198681099027732, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_Size.y
+      value: 15.735395
+      objectReference: {fileID: 0}
     - target: {fileID: 691198681099027732, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8799534508003364218, guid: 2ef07c2dc8a09db499b93a6d410f743f, type: 3}
+      objectReference: {fileID: 21300000, guid: 2ef07c2dc8a09db499b93a6d410f743f, type: 3}
+    - target: {fileID: 691198681099027732, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_SortingOrder
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 691198681099027732, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2232889147376773924, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
       propertyPath: m_Name
       value: Konrad
@@ -1344,7 +1364,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2876300885201636730, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.61
+      value: 5.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876300885201636730, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3120072708342632827, guid: 03ffc9dc464fe6d44bf22416dd4e27de, type: 3}
       propertyPath: m_Name

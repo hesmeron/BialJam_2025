@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5a4cc8f355524e840be9105e8281ce45
+guid: 1ff35863f9fc69c459786b7bed75d334
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2839797921827277785
-    second: angry konrad_0
-  - first:
-      213: 8091766888595853924
-    second: angry konrad_1
+      213: -5861689876133137035
+    second: walking konrad2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angry konrad_0
+      name: walking konrad2_0
       rect:
         serializedVersion: 2
-        x: 687
-        y: 1706
-        width: 240
-        height: 340
+        x: 335
+        y: 22
+        width: 529
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9db486cf92df86720800000000000000
-      internalID: 2839797921827277785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: angry konrad_1
-      rect:
-        serializedVersion: 2
-        x: 1146
-        y: 1871
-        width: 9
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4621608fc1bbb4070800000000000000
-      internalID: 8091766888595853924
+      spriteID: 575b49d3d1817aea0800000000000000
+      internalID: -5861689876133137035
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -172,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walking konrad2_0: -5861689876133137035
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

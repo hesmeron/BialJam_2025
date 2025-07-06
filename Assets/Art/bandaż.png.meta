@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1438ab01d30cdab43a1041493566502c
+guid: 32d3fd6dc629ba1468f6b8a6f5cce40d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2049772265445639126
-    second: konrad walking3_0
+      213: 4754346606592814550
+    second: "banda\u017C_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: konrad walking3_0
+      name: "banda\u017C_0"
       rect:
         serializedVersion: 2
-        x: 400
-        y: 940
-        width: 900
-        height: 1111
+        x: 976
+        y: 1285
+        width: 211
+        height: 345
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2c3aa71cfebd83e0800000000000000
-      internalID: -2049772265445639126
+      spriteID: 6dd6c019c05daf140800000000000000
+      internalID: 4754346606592814550
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8fa6830c346eed64c9e980b42f424420
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      konrad walking3_0: -2049772265445639126
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

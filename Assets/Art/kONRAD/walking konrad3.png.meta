@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 2ef07c2dc8a09db499b93a6d410f743f
+guid: 1a3b537a833e5e84e881818ee0f8ee51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8799534508003364218
-    second: konrad walking2_0
+      213: -4574776071124574926
+    second: walking konrad3_0
   - first:
-      213: -7275368688704519485
-    second: konrad walking2_1
+      213: -2803263515134569320
+    second: walking konrad3_1
   - first:
-      213: 4098834099577073317
-    second: konrad walking2_2
+      213: -1799782261234073549
+    second: walking konrad3_2
   - first:
-      213: 5054777381084836247
-    second: konrad walking2_3
-  - first:
-      213: 5199294992841743726
-    second: konrad walking2_4
-  - first:
-      213: 578836200333726462
-    second: konrad walking2_5
-  - first:
-      213: 8031258579493214475
-    second: konrad walking2_6
+      213: 2914921191924761722
+    second: walking konrad3_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -131,155 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: konrad walking2_0
+      name: walking konrad3_0
       rect:
         serializedVersion: 2
-        x: 400
-        y: 940
-        width: 900
+        x: 97
+        y: 456
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d99a9c6612380c0800000000000000
+      internalID: -4574776071124574926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking konrad3_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 22
+        width: 547
         height: 1111
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7d055a530a3e1a70800000000000000
-      internalID: 8799534508003364218
+      spriteID: 89457907faec819d0800000000000000
+      internalID: -2803263515134569320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: konrad walking2_1
+      name: walking konrad3_2
       rect:
         serializedVersion: 2
-        x: 623
-        y: 1366
-        width: 7
-        height: 16
+        x: 53
+        y: 408
+        width: 12
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c284c369b2b80b90800000000000000
-      internalID: -7275368688704519485
+      spriteID: 330081ea193e507e0800000000000000
+      internalID: -1799782261234073549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: konrad walking2_2
+      name: walking konrad3_3
       rect:
         serializedVersion: 2
-        x: 624
-        y: 1338
-        width: 38
-        height: 28
+        x: 0
+        y: 289
+        width: 18
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5aeac82a5ebf1e830800000000000000
-      internalID: 4098834099577073317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: konrad walking2_3
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 1280
-        width: 9
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 791bd3a2f3d262640800000000000000
-      internalID: 5054777381084836247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: konrad walking2_4
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 1257
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e6d9ccabf3b972840800000000000000
-      internalID: 5199294992841743726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: konrad walking2_5
-      rect:
-        serializedVersion: 2
-        x: 592
-        y: 1236
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef257081570780800800000000000000
-      internalID: 578836200333726462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: konrad walking2_6
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 1043
-        width: 9
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b09500a6023c47f60800000000000000
-      internalID: 8031258579493214475
+      spriteID: a740fe05161e37820800000000000000
+      internalID: 2914921191924761722
       vertices: []
       indices: 
       edges: []
@@ -288,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c80dc33581aaebc4e9d6974f901f4b84
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -298,13 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      konrad walking2_0: 8799534508003364218
-      konrad walking2_1: -7275368688704519485
-      konrad walking2_2: 4098834099577073317
-      konrad walking2_3: 5054777381084836247
-      konrad walking2_4: 5199294992841743726
-      konrad walking2_5: 578836200333726462
-      konrad walking2_6: 8031258579493214475
+      walking konrad3_0: -4574776071124574926
+      walking konrad3_1: -2803263515134569320
+      walking konrad3_2: -1799782261234073549
+      walking konrad3_3: 2914921191924761722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
