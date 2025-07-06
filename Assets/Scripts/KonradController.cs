@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 public class KonradController : MonoBehaviour
 {
+    [SerializeField]
+    private Animator _animator;
     [SerializeField] 
     private float _startingX;    
     [SerializeField] 
@@ -23,8 +25,11 @@ public class KonradController : MonoBehaviour
     private float _currentX;
     [SerializeField]
     private bool _isKonradLooking = false;
+    [SerializeField]
+    private bool _isKonradAttacking = false;
 
     public bool IsKonradLooking => _isKonradLooking;
+    public bool IsKonradAttacking => _isKonradAttacking;
 
     private void OnDrawGizmosSelected()
     {
@@ -55,18 +60,48 @@ public class KonradController : MonoBehaviour
                 //_isKonradLooking = (Mathf.Abs(_currentX - _endingX) < Mathf.Abs(_currentX - _lookingThresholdX));
                 _isKonradLooking = ((_currentX - _lookingThresholdXA) *  (_currentX - _lookingThresholdXB)) < 0;
                 yield return null;
+                if (_isKonradAttacking)
+                {
+                    break;
+                }
+            }
+
+            while (_isKonradAttacking)
+            {
+                yield return null;
             }
             
         }
+    }
 
-        
+    IEnumerator KonradAttacking(HandController hand)
+    {
+        yield return new WaitForSeconds(2.3f);
+        hand.DisableHand();
+        yield return new WaitForSeconds(1.7f);
+    }
+    
 
+    public void KondzioCheck(HandController handController)
+    {
+        if (_isKonradLooking && !_isKonradAttacking)
+        {       
+            Debug.Log("Attack konrad");
+            _isKonradAttacking = true;
+            _animator.SetTrigger("Attack");
+            StartCoroutine(KonradAttacking(handController));
+        }
     }
 
     private void SetCharacterX(float value)
     {
-        _currentX = value;
-        Vector3 currentPos = _characterPivot.position;
-        _characterPivot.transform.position =new Vector3(value, currentPos.y, currentPos.z);
+        Debug.Log("Move konrad");
+        if (!_isKonradAttacking)
+        {
+            _currentX = value;
+            Vector3 currentPos = _characterPivot.position;
+            _characterPivot.transform.position =new Vector3(value, currentPos.y, currentPos.z);
+        }
+
     }
 }

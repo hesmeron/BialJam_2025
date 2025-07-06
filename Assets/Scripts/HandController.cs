@@ -52,12 +52,18 @@ public class HandController : MonoBehaviour
         Vector2 translation = _velocity.normalized * (Time.deltaTime * _velocity.magnitude * _speed);
         Vector2 newTarget = _bounds.ClampPoint(_target + translation);
         _target = newTarget;
-        _pivot.position = Vector2.Lerp(_pivot.position, _target, _speed * Time.deltaTime);
+        SetPosition(Vector2.Lerp(_pivot.position, _target, _speed * Time.deltaTime));
 
         if (!_isDisabled)
         {
             HandleEnterEvents();
         }
+    }
+
+    private void SetPosition(Vector2 position)
+    {
+        _pivot.position = position;
+        //_pivot.transform.up = _pivot.localPosition.normalized;
     }
 
     private void HandleEnterEvents()

@@ -79,10 +79,8 @@ public class DogController : MonoBehaviour
         {
             _gameEndManager.EndGame(GameEndScenario.DogOverfed);
         }
-        if (_konradController.IsKonradLooking)
-        {
-            handController.DisableHand();
-        }
+        
+        _konradController.KondzioCheck(handController);
     }
 
 }
