@@ -7,6 +7,8 @@ public class HandController : MonoBehaviour
     private static readonly int IsGrabbing = Animator.StringToHash("isGrabbing");
     private static readonly int IsDisabledID = Animator.StringToHash("isDisabled");
 
+    [SerializeField] 
+    private Transform _pivot;
     [SerializeField]
     private ActionManager _actionManager;
     [SerializeField] 
@@ -28,16 +30,29 @@ public class HandController : MonoBehaviour
 
     void Start()
     {
-        _target = transform.position;
+        _target = _pivot.transform.position;
         _enteredActionSpaces = _actionManager.GetAllActionsAtPoint(transform.position);
     }
+
+    private void OnEnable()
+    {
+        Reset();
+    }
+
+    public void Reset()
+    {
+        _pivot.localPosition = Vector3.zero;
+        _animator.SetBool(IsDisabledID, _isDisabled);
+        _target = _pivot.transform.position;
+    }
+
 
     private void Update()
     {
         Vector2 translation = _velocity.normalized * (Time.deltaTime * _velocity.magnitude * _speed);
         Vector2 newTarget = _bounds.ClampPoint(_target + translation);
         _target = newTarget;
-        transform.position = Vector2.Lerp(transform.position, _target, _speed * Time.deltaTime);
+        _pivot.position = Vector2.Lerp(_pivot.position, _target, _speed * Time.deltaTime);
 
         if (!_isDisabled)
         {
@@ -47,7 +62,7 @@ public class HandController : MonoBehaviour
 
     private void HandleEnterEvents()
     {
-        var results = _actionManager.GetAllActionsAtPoint(transform.position);
+        var results = _actionManager.GetAllActionsAtPoint(_pivot.position);
 
         foreach (var actionSpace in results)
         {
@@ -71,7 +86,7 @@ public class HandController : MonoBehaviour
         {
             Debug.Log("Grab ");
             _animator.SetBool(IsGrabbing, true);
-            if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+            if (_actionManager.GetActionAtPoint(_pivot.position, out ActionSpace actionspace))
             {
                 actionspace.Grab(this);
             }
@@ -87,11 +102,12 @@ public class HandController : MonoBehaviour
             if (_grabbedItem != null)
             {
                 _grabbedItem.transform.SetParent(null);
-                if (_actionManager.GetActionAtPoint(transform.position, out ActionSpace actionspace))
+                if (_actionManager.GetActionAtPoint(_pivot.position, out ActionSpace actionspace))
                 {
                     actionspace.Drop(_grabbedItem, this);
                 }
-                else
+
+                if (_grabbedItem != null)
                 {
                     _grabbedItem.DropAndDisable();
                 }
@@ -104,7 +120,7 @@ public class HandController : MonoBehaviour
     {
         if (!_isDisabled)
         {
-            grabable.transform.SetParent(transform);
+            grabable.transform.SetParent(_pivot);
             grabable.transform.localPosition = Vector3.zero;
             _grabbedItem = grabable;
         }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grab
+  m_Name: Medium
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5904590242189545570, guid: 5371adf028e9b58409c758ba61e6ce65, type: 3}
+      value: {fileID: -914220805710968536, guid: f780a6f079a75844a8613b6a1be1b8cd, type: 3}
     attribute: m_Sprite
-    path: pivot/Hand
+    path: Dog
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -35,7 +35,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2280962981
+      path: 3110174621
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5904590242189545570, guid: 5371adf028e9b58409c758ba61e6ce65, type: 3}
+    - {fileID: -914220805710968536, guid: f780a6f079a75844a8613b6a1be1b8cd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

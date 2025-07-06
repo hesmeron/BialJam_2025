@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bdc902bda7fc14bbfff4504787c213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pivot: {fileID: 2207625372344257922}
   _actionManager: {fileID: 0}
   _bounds: {fileID: 0}
   _speed: 20
@@ -292,7 +293,7 @@ GameObject:
   - component: {fileID: 7319929714036106516}
   - component: {fileID: 8735310289589197783}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

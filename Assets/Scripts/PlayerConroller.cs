@@ -63,9 +63,11 @@ public class PlayerConroller : MonoBehaviour
     
     IEnumerator ChangeGameModeUp()
     {
-        yield return new WaitForSeconds(2f);
-        _dogController.Reenable();
+        _lHand.Reset();
+        _rHand.Reset();
         _cameraController.MoveUp();
+        yield return new WaitForSeconds(0.7f);
+        _dogController.Reenable();
         _animator.SetBool(IsVisible, true);
         yield return new WaitForSeconds(2f);
         _gameMode = GameMode.Up;

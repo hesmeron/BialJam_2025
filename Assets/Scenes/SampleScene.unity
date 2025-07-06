@@ -1567,6 +1567,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1608085661}
     - target: {fileID: 6588369921560171521, guid: 2a331aaf6efc61a4d8c3b875526a8bfe, type: 3}
+      propertyPath: _fluFailureThreshold
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588369921560171521, guid: 2a331aaf6efc61a4d8c3b875526a8bfe, type: 3}
       propertyPath: _velocityLetLooseThreshold
       value: 35
       objectReference: {fileID: 0}
