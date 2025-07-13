@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class DogController : MonoBehaviour
@@ -6,7 +7,11 @@ public class DogController : MonoBehaviour
     private static readonly int HungerID = Animator.StringToHash("hunger");
     private static readonly int IsVisible = Animator.StringToHash("isVisible");
     private static readonly int FattnessId = Animator.StringToHash("Fattness");
-    
+    private static readonly int Rocking = Animator.StringToHash("Rocking");
+    private static readonly int Angry = Animator.StringToHash("Angry");
+
+    [SerializeField]
+    private PlayerConroller _player;
     [SerializeField]
     private Animator _animator;
     [SerializeField] 
@@ -66,6 +71,10 @@ public class DogController : MonoBehaviour
     
     public void Feed(Grabable grabable, HandController handController)
     {
+        if (grabable.IsLove)
+        {
+            _gameEndManager.EndGame(GameEndScenario.Love);
+        }
         if (!grabable.EdibleByDog)
         {
             _gameEndManager.EndGame(GameEndScenario.DogPoisoned);
@@ -81,6 +90,29 @@ public class DogController : MonoBehaviour
         }
         
         _konradController.KondzioCheck(handController);
+    }
+
+    public void TryPet(HandController handController)
+    {
+        if (_fatness > 0.55f)
+        {
+            _animator.SetTrigger(Rocking);
+            hunger /= 2f;
+        }
+        else
+        {
+            StartCoroutine(AttackHand(handController));
+        }
+
+    }
+
+    IEnumerator AttackHand(HandController handController)
+    {
+        _player.ChangeMode(PlayerConroller.GameMode.Idling);
+        _animator.SetTrigger(Angry);
+        yield return new WaitForSeconds(1f);
+        handController.DisableHand();
+        _player.ChangeMode(PlayerConroller.GameMode.Up);
     }
 
 }

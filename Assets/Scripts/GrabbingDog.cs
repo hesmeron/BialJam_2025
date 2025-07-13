@@ -84,7 +84,7 @@ public class GrabbingDog : MonoBehaviour
                     {
                         if (_dogControler.Fattness > 0.65)
                         {
-                            _gameEndManager.EndGame(GameEndScenario.DemolitionBall);
+                            _gameEndManager.EndGame(GameEndScenario.SpaceDog);
                         }
                         else
                         {

@@ -76,7 +76,7 @@ public class KonradController : MonoBehaviour
 
     IEnumerator KonradAttacking(HandController hand)
     {
-        yield return new WaitForSeconds(2.3f);
+        yield return new WaitForSeconds(2.5f);
         hand.DisableHand();
         yield return new WaitForSeconds(1.7f);
     }

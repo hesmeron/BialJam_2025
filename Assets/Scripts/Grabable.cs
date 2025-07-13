@@ -4,6 +4,8 @@ using UnityEngine;
 public class Grabable : MonoBehaviour
 {
     [SerializeField] 
+    private bool _isLove;
+    [SerializeField] 
     private bool _edibleByDog = true;
     [SerializeField]
     private Bounds _bounds;
@@ -11,6 +13,7 @@ public class Grabable : MonoBehaviour
     private Rigidbody2D _rigidbody;
     
     public bool EdibleByDog => _edibleByDog;
+    public bool IsLove => _isLove;
 
 
     public void Initialize(Bounds bounds)

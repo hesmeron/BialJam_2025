@@ -43,11 +43,17 @@ public class HandController : MonoBehaviour
     {
         _pivot.localPosition = Vector3.zero;
         _animator.SetBool(IsDisabledID, _isDisabled);
+        Freeze();
+    }
+
+    public void Freeze()
+    {
         _target = _pivot.transform.position;
+        _velocity = Vector3.zero;
     }
 
 
-    private void Update()
+    public void UpdateHand()
     {
         Vector2 translation = _velocity.normalized * (Time.deltaTime * _velocity.magnitude * _speed);
         Vector2 newTarget = _bounds.ClampPoint(_target + translation);
